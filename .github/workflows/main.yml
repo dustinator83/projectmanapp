@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Enhanced Task Manager</title>
+  
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Flatpickr datepicker -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="bg-blue-500 text-white p-4 flex justify-between">
+  <h1 class="text-2xl font-bold">Task Manager</h1>
+  
+  <!-- Calendar toggle -->
+  <button 
+    id="calendar-toggle"
+    class="bg-gray-300 text-gray-900 rounded p-2"
+  >
+    Calendar View
+  </button>
+</header>
+
+<!-- Main Content -->
+<main class="mx-auto max-w-2xl p-4">
+
+  <!-- Calendar view -->
+  <div id="calendar"></div>
+
+  <!-- Task list -->
+  <h2 class="text-xl mt-4 mb-2">Tasks</h2>
+  
+  <!-- Filters -->
+  <div class="flex mb-4">
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+      <!-- Dynamically generate from categories array -->
+    </select>
+    
+    <select id="priorityFilter" class="ml-4">
+      <option value="">All Priorities</option>
+      <!-- Dynamically generate from priorities array -->
+    </select>
+  </div>
+  
+  <!-- Sorting -->
+  <div class="flex mb-4">
+    <button 
+      class="bg-gray-300 text-gray-900 rounded p-2"
+      onclick="sortByDate()"  
+    >
+      Sort by Date
+    </button>
+    
+    <button
+      class="bg-gray-300 text-gray-900 rounded p-2 ml-4" 
+      onclick="sortByPriority()"
+    >
+      Sort by Priority  
+    </button>
+  </div>
+  
+  <ul id="task-list">
+    <!-- Rendered tasks -->
+  </ul>
+
+  <!-- Task stats -->
+  <div id="stats" class="mt-8 text-gray-700">
+    <span id="total-count">0</span> total tasks
+  </div>
+
+  <!-- Task form -->
+  <form id="new-task-form" class="mt-8 max-w-md">
+    <div class="mb-4">
+      <label>Title</label>
+      <input 
+        id="title"
+        type="text" 
+        class="shadow form-input"
+        placeholder="Title"
+      />
+    </div>
+
+    <!-- Category --> 
+    <div class="mb-4">
+      <label>Category</label>
+      <select id="category" class="shadow form-input">
+        <!-- Dynamically generated from categories array -->
+      </select>
+    </div>
+
+    <!-- Priority -->
+    <div class="mb-4">
+      <label>Priority</label>
+      <select id="priority" class="shadow form-input">
+        <!-- Dynamically generated from priorities array -->
+      </select>
+    </div>
+
+    <!-- Other fields like description, due date, assigned to etc -->
+
+    <button
+      type="submit"
+      class="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600"  
+    >
+      Add Task 
+    </button>
+  </form>
+
+</main>
+
+<!-- Scripts -->
+<script>
+
+// Initial code and handlers
+
+function showCalendar() {
+  // Initialize and display calendar view 
+  // Allow clicking dates to filter tasks
+}
+
+function sendReminder(task) {
+
+  if (task.dueDate === today) {
+  
+    // Show browser alert
+    alert(`${task.title} is due today!`);
+
+  }
+
+}
+
+// Task methods like renderTask, addTask etc
+
+</script>
+
+</body>
+</html>
